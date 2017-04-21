@@ -1,0 +1,8 @@
+* PlentI
+
+Web application for amazing plans of holidays!
+** Settings
+PlentI relies extensively on environment settings which will not work with Apache/mod_wsgi setups.
+** Requirements
+** Deployment
+** 
