@@ -7,3 +7,19 @@ node_js:
   - "node"
 
 sudo: false
+
+addons:
+  postgresql: "9.4"
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database db_test;' -U postgres
+  - "export NODE_ENV=ci-travis"
+  - npm run db:migrate
+  - npm run db:seed
+  - npm run build &
+  - wget --retry-connrefused --no-check-certificate -T 60 http://127.0.0.1:3000/healthcheck -O /dev/null 2>&1
+
+script: npm test
