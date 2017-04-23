@@ -7,4 +7,4 @@ Web application for amazing plans of holidays!
 PlentI relies extensively on environment settings which will not work with Apache/mod_wsgi setups.
 ** Requirements
 ** Deployment
-** 
+** LICENSE
