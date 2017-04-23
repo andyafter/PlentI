@@ -1,5 +1,7 @@
 * PlentI
 
+#+html: <a href="https://www.codacy.com/app/andyafter/Interviews?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=andyafter/Interviews&amp;utm_campaign=Badge_Grade"><img src="https://travis-ci.org/andyafter/PlentI.svg?branch=master"/></a>
+
 Web application for amazing plans of holidays!
 ** Settings
 PlentI relies extensively on environment settings which will not work with Apache/mod_wsgi setups.
