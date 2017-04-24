@@ -24,7 +24,7 @@ server.register(require('hapi-auth-jwt'), (err) => {
     });
 
     // create a new route for all files in src/route
-    glob.sync('./src/routes/*.js', {
+    glob.sync('./src/*/routes/*.js', {
         root: __dirname
     }).forEach(file => {
         const route = require(path.join(__dirname, file));
