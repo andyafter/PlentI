@@ -1,0 +1,4 @@
+* PlentI Server
+ This is backend application implemented with Hapi.js. 
+** 
+
