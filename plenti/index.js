@@ -1,19 +1,28 @@
-var Hapi = require('hapi');
+'use strict';
+
+const Hapi = require('hapi');
+const Boom = require('boom');
+const mongoose = require('mongoose');
+const glob = require('glob');
+const path = require('path');
+const secret = require('./config/constants');
 
 var server = new Hapi.Server();
+
 server.connection({
     host: 'localhost',
-    port: 1337
+    port: 5000
 });
 
-server.route({
-    method: 'GET',
-    path: '/hello',
-    handler: function(request, reply){
-        reply('Hello World');
+
+
+server.start((err) => {
+    if (err) {
+        throw err;
     }
-});
-
-server.start(function(){
-    console.log("Server running at:", server.info.uri);
+    mongoose.connect(dbUrl, {}, (err) => {
+        if (err) {
+            throw err;
+        }
+    });
 });

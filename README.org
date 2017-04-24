@@ -5,6 +5,24 @@
 Web application for amazing plans of holidays!
 ** Settings
 PlentI relies extensively on environment settings which will not work with Apache/mod_wsgi setups.
-** Requirements
+** Getting up and running
+*** Basics
+The steps below will get you up and running with a local development environment. We assume you have the following installed:
+- MongoDB
+- NodeJS
+Make sure you have the folder ~/data/db~ in your root directory and is writable. 
+
+Install dependencies from the project root directory:
+#+BEGIN_SRC shell
+$ npm install
+#+END_SRC
+
+Run the project:
+#+BEGIN_SRC shell
+$ npm start
+#+END_SRC
+
+*** TODO 
+Write scripts for requirement installation. 
 ** Deployment
 ** LICENSE
