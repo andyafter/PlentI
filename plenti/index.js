@@ -5,7 +5,7 @@ const Boom = require('boom');
 const mongoose = require('mongoose');
 const glob = require('glob');
 const path = require('path');
-const secret = require('./config');
+const secret = require('./config/constants');
 
 var server = new Hapi.Server();
 
@@ -13,6 +13,8 @@ server.connection({
     host: 'localhost',
     port: 5000
 });
+
+const dbUrl = 'mongodb://localhost:27017/hapi-app';
 
 server.register(require('hapi-auth-jwt'), (err) => {
 
@@ -30,6 +32,13 @@ server.register(require('hapi-auth-jwt'), (err) => {
     });
 });
 
-server.start(function(){
-    console.log("Server running at:", server.info.uri);
+server.start((err) => {
+    if (err) {
+        throw err;
+    }
+    mongoose.connect(dbUrl, {}, (err) => {
+        if (err) {
+            throw err;
+        }
+    });
 });
