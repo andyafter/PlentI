@@ -17,10 +17,16 @@ Install dependencies from the project root directory:
 $ npm install
 #+END_SRC
 
-Run the project:
+You can run the website by running:
+#+BEGIN_SRC shell
+gulp serve
+#+END_SRC
+
+Run the backend only:
 #+BEGIN_SRC shell
 $ npm start
 #+END_SRC
+
 
 *** TODO 
 Write scripts for requirement installation. 

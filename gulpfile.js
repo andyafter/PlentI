@@ -30,7 +30,9 @@ gulp.task('copy:assets', function () {
 });
 
 gulp.task('copy:index', function () {
-    return gulp.src(['angular/src/index.html', 'angular/src/systemjs.config.js'])
+    return gulp.src(['angular/src/index.html',
+                     'angular/src/systemjs.config.js',
+                     'angular/src/main.js'])
         .pipe(gulp.dest('dist'));
 });
 
@@ -41,10 +43,11 @@ gulp.task('copy:libs', function () {
         'node_modules/zone.js/dist/**',
         'node_modules/reflect-metadata/temp/Reflect.js',
         'node_modules/rxjs/**',
+        'node_modules/core-js/**',
         'node_modules/systemjs/dist/system.src.js',
         'node_modules/@angular/**'
     ], {base: './node_modules'})
-        .pipe(gulp.dest('dist/lib'));
+        .pipe(gulp.dest('dist/libs'));
 });
 
 var typingFiles = [  
