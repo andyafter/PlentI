@@ -16,6 +16,7 @@
 /tsd_typings/
 npm-debug.log
 /dist/
+build/
 
 ### Logs and records
 webpack.records.json
