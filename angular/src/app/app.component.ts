@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { RouteConfig } from '@angular/router-deprecated';
+import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './shared/dashboard.component';
-
 
 @Component({
     selector: 'my-app',
