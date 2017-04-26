@@ -48,11 +48,11 @@
     "reflect-metadata": "^0.1.10",
     "run-sequence": "^1.2.2",
     "rx": "^4.1.0",
-    "rxjs": "^5.0.1",
+    "rxjs": "^5.3.0",
     "systemjs": "0.19.40",
     "typescript": "^2.1.6",
     "typings": "^2.1.1",
-    "zone.js": "^0.8.4"
+    "zone.js": "^0.8.9"
   },
   "devDependencies": {
     "concurrently": "^3.2.0",

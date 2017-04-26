@@ -25,7 +25,7 @@ gulp.task('serve', ['build'], function () {
 });
 
 gulp.task('copy:assets', function () {
-    return gulp.src(['angular/src/app/**/*', '!angular/src/app/**/*.ts'], {base: './'})
+    return gulp.src(['angular/src/**', '!angular/src/**/*.ts'], {base: './'})
         .pipe(gulp.dest('dist'));
 });
 

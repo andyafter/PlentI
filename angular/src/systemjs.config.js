@@ -3,8 +3,17 @@
     // map tells the System loader where to look for things
     var map = {
         'app':                        'app', // 'dist',
-        'rxjs':                       'lib/rxjs',
-        '@angular':                   'lib/@angular'
+        'rxjs':                       'libs/rxjs',
+        '@angular':                   'libs/@angular',
+        '@angular/core': 'libs/@angular/core/bundles/core.umd.js',
+        '@angular/common': 'libs/@angular/common/bundles/common.umd.js',
+        '@angular/compiler': 'libs/@angular/compiler/bundles/compiler.umd.js',
+        '@angular/platform-browser': 'libs/@angular/platform-browser/bundles/platform-browser.umd.js',
+        '@angular/platform-browser-dynamic': 'libs/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+        '@angular/http': 'libs/@angular/http/bundles/http.umd.js',
+        '@angular/router': 'libs/@angular/router/bundles/router.umd.js',
+        '@angular/forms': 'libs/@angular/forms/bundles/forms.umd.js',
+        '@angular/upgrade': 'libs/@angular/upgrade/bundles/upgrade.umd.js'
     };
 
     // packages tells the System loader how to load when no filename and/or no extension
@@ -12,22 +21,6 @@
         'app':                        { main: 'main.js',  defaultExtension: 'js' },
         'rxjs':                       { defaultExtension: 'js' }
     };
-
-    var packageNames = [
-        '@angular/common',
-        '@angular/compiler',
-        '@angular/core',
-        '@angular/forms',
-        '@angular/http',
-        '@angular/platform-browser',
-        '@angular/platform-browser-dynamic',
-        '@angular/router',
-    ];
-
-    // add package entries for angular packages in the form '@angular/common': { main: 'index.js', defaultExtension: 'js' }
-    packageNames.forEach(function(pkgName) {
-        packages[pkgName] = { main: 'index.js', defaultExtension: 'js' };
-    });
 
     var config = {
         map: map,

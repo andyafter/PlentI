@@ -10,6 +10,7 @@ PlentI relies extensively on environment settings which will not work with Apach
 The steps below will get you up and running with a local development environment. We assume you have the following installed:
 - MongoDB
 - NodeJS
+- gulp(betterinstalled globally)
 Make sure you have the folder ~/data/db~ in your root directory and is writable. 
 
 Install dependencies from the project root directory:
