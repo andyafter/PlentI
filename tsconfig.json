@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "outDir": "./dist/out-tsc",
-        "target": "es5",
+        "target": "es6",
         "module": "system",
         "moduleResolution": "node",
         "sourceMap": true,
@@ -9,16 +9,16 @@
         "experimentalDecorators": true,
         "removeComments": false,
         "noImplicitAny": false,
-        "exclude": [
-            "node_modules",
-            "typings/main",
-            "typings/main.d.ts"
-        ],
         "typeRoots": [
             "./node_modules/@types"
         ],
         "types": [
-            "core-js"
+            "jasmine"
         ]
-    }
+    },
+    "exclude": [
+            "node_modules",
+            "typings/main",
+            "typings/main.d.ts"
+    ]
 }
