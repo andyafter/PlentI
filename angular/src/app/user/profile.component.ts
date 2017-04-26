@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 
 @Component({
     selector: 'app-user-profile',
-    template: './profile.tpl.html'
+    template: `<h2>Here is the profile </h2>`
 })
 
 export class UserProfileComponent{
