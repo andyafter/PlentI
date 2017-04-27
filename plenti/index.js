@@ -21,20 +21,6 @@ server.route({
     }
 });
 
-server.register({
-    register: require('./libs/plugins/skyscannerScraper')
-}, (err) => {
-
-    if (err) {
-        throw err;
-    }else{
-        server.start(function () {
-            console.log("Hapi Starting!!!");
-        });
-    }
-
-});
-
 server.start(function () {
     console.log("Hapi Starting!!!");
 });
