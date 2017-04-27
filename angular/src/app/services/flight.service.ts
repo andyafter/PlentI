@@ -22,4 +22,8 @@ export class FlightService{
         return this._http.post(this._appService.getURL('/flight'), JSON.stringify(post))
             .map(response => response.json());
     }
+
+    fetchSkyscanner(){
+        
+    }
 }

@@ -23,7 +23,7 @@ You can run the website by running:
 gulp serve
 #+END_SRC
 
-Run the backend only:
+Currently gulp only helps with the compilation of Angular, which means you should also run the backend with another terminal:
 #+BEGIN_SRC shell
 $ npm start
 #+END_SRC

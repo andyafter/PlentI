@@ -10,7 +10,8 @@ import { DestinationService } from './services/destination.service';
 
 @Component({
     selector: 'my-app',
-    template: `<h1>Hello {{name}}</h1>
+    template: `
+<h1>Hello {{name}}</h1>
 <router-outlet> </router-outlet>`,
     providers: [ FlightService,
                  PlanService,
