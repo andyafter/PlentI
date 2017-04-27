@@ -11,7 +11,7 @@ The steps below will get you up and running with a local development environment
 - MongoDB
 - NodeJS
 - gulp(betterinstalled globally)
-Make sure you have the folder ~/data/db~ in your root directory and is writable. 
+Make sure you have the folder ~/data/db~ in your root directory and is writable. And make sure that you ran ~mongod~ in some terminal.
 
 Install dependencies from the project root directory:
 #+BEGIN_SRC shell

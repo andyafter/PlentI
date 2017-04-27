@@ -12,7 +12,7 @@
         '@angular/platform-browser-dynamic': 'libs/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
         '@angular/http': 'libs/@angular/http/bundles/http.umd.js',
         '@angular/router': 'libs/@angular/router/bundles/router.umd.js',
-        '@angular/router-deprecated': 'libs/@angular/router-deprecated/bundles/router-deprecated.umd.js',
+        //'@angular/router-deprecated': 'libs/@angular/router-deprecated/bundles/router-deprecated.umd.js',
         '@angular/forms': 'libs/@angular/forms/bundles/forms.umd.js',
         '@angular/upgrade': 'libs/@angular/upgrade/bundles/upgrade.umd.js'
     };

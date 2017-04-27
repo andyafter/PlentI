@@ -1,6 +1,7 @@
 var gulp  = require('gulp');
 var runSequence = require('run-sequence');  
 var del = require('del');
+var nodemon = require('gulp-nodemon');
 var clean = require('gulp-clean');
 var ts = require('gulp-typescript');
 var browserSync = require("browser-sync").create();
@@ -62,6 +63,17 @@ gulp.task('compile', function () {
     return tsResult.js
         .pipe(sourcemaps.write("."))
         .pipe(gulp.dest('dist/app'));
+});
+
+gulp.task('server:start', function (callback) {
+    server = require('./plenti');
+});
+
+gulp.task('server:stop', function (callback) {
+    server.stop(function() {
+        process.exit(0);
+        callback();
+    });
 });
 
 gulp.task('build', function(cb) {
