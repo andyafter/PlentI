@@ -1,4 +1,6 @@
-module.exports = {
+'use strict';
+
+exports.constants = {
     SkyscannerAPIKey: 'andyafter',
     MongoURL: 'mongodb://localhost:27017/plentibase',
     

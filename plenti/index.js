@@ -4,7 +4,11 @@ const Hapi = require('hapi');
 const Boom = require('boom');
 const glob = require('glob');
 const path = require('path');
+
 const constants = require('./config/constants');
+const database = require('./config/database');
+
+const DestinationRoutes = require('./src/plans/routes/destinationRoutes');
 
 var server = new Hapi.Server();
 
@@ -20,6 +24,8 @@ server.route({
         reply('hello from hapi');
     }
 });
+
+server.route(DestinationRoutes.endpoints);
 
 server.start(function () {
     console.log("Hapi Starting!!!");
