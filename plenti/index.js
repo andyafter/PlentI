@@ -4,7 +4,7 @@ const Hapi = require('hapi');
 const Boom = require('boom');
 const glob = require('glob');
 const path = require('path');
-const secret = require('./config/constants');
+const constants = require('./config/constants');
 
 var server = new Hapi.Server();
 

@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 
 const destinationModel = new Schema({
     name: { type: String, required: true },
-    country: {type: string },
-    info:{ type: string }
+    country: {type: String, default: '' },
+    info:{ type: String, default: '' }
 });
 
 module.exports = mongoose.model('Destination', destinationModel);
