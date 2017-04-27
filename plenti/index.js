@@ -2,7 +2,6 @@
 
 const Hapi = require('hapi');
 const Boom = require('boom');
-const mongoose = require('mongoose');
 const glob = require('glob');
 const path = require('path');
 const secret = require('./config/constants');
@@ -14,15 +13,28 @@ server.connection({
     port: 5000
 });
 
+server.route({
+    method: 'GET',
+    path: '/',
+    handler: function(request, reply){
+        reply('hello from hapi');
+    }
+});
 
+server.register({
+    register: require('./libs/plugins/skyscannerScraper')
+}, (err) => {
 
-server.start((err) => {
     if (err) {
         throw err;
+    }else{
+        server.start(function () {
+            console.log("Hapi Starting!!!");
+        });
     }
-    mongoose.connect(dbUrl, {}, (err) => {
-        if (err) {
-            throw err;
-        }
-    });
+
+});
+
+server.start(function () {
+    console.log("Hapi Starting!!!");
 });
