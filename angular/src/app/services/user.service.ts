@@ -7,19 +7,19 @@ import { Injectable } from '@angular/core';
 import { AppService } from './app.services'
 
 @Injectable()
-export class FlightService{
+export class UserService{
 
     constructor(private _http: Http, private _appService: AppService){
         
     }
     
-    getFlight(){
-        return this._http.get(this._appService.getURL('/flight'))
+    getUser(){
+        return this._http.get(this._appService.getURL('/user'))
             .map(response => response.json());
     }
 
-    createFlight(post){
-        return this._http.post(this._appService.getURL('/flight'), JSON.stringify(post))
+    createUser(post){
+        return this._http.post(this._appService.getURL('/user'), JSON.stringify(post))
             .map(response => response.json());
     }
 }

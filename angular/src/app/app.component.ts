@@ -18,5 +18,7 @@ export class AppComponent  {
 
     name = 'Angular';
     constructor(private _flightService: FlightService){
+        this._flightService.getFlight()
+            .subscribe(flight => console.log(flight));
     }
 }

@@ -15,7 +15,8 @@ var server = new Hapi.Server();
 
 server.connection({
     host: 'localhost',
-    port: 5000
+    port: 5000,
+    routes: { cors: true } 
 });
 
 server.route({
