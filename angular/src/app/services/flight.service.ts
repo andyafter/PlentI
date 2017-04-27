@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
 
-import { AppService } from './app.services'
+import { AppService } from './app.service'
 
 @Injectable()
 export class FlightService{
