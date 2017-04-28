@@ -13,6 +13,10 @@ export class AppService{
     }
 
     getSkyscannerKey(){
-        
+        return this._key;
+    }
+
+    getSkyscannerAPI(){
+        return this._skyscannerapi;
     }
 }

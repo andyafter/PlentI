@@ -2,7 +2,7 @@
 
 import { Component } from '@angular/core';
 
-import { PlanService } from './services/plan.service';
+import { PlanService } from '../services/plan.service';
 
 @Component({
     selector: 'plan-list',
@@ -22,6 +22,9 @@ export class PlanListComponent {
     
     refreshPlans(){
         this._planService.getPlan()
-            .subscribe(plan => console.log(plan))
+            .subscribe(plan => {
+                console.log('here');
+                console.log('again');
+            })
     }
 }
