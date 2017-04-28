@@ -30,8 +30,8 @@ import { DestinationService } from './services/destination.service';
 })
 
 export class AppComponent  {
-
     name = 'John';
+    
     constructor(private _flightService: FlightService,
                 private _planService: PlanService,
                 private _destinationService: DestinationService){
@@ -43,6 +43,7 @@ export class AppComponent  {
         
         this._planService.getPlan()
             .subscribe(plan => console.log(plan));
+        
         this._destinationService.getDestination()
             .subscribe(destination => console.log(destination));
     }

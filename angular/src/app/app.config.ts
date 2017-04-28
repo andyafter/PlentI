@@ -27,6 +27,10 @@ export const routerConfig = RouterModule.forRoot([
         component: PlanListComponent
     },
     {
+        path: 'plan',
+        component: PlanComponent
+    },
+    {
         path: '',
         redirectTo: '/dashboard',
         pathMatch: 'full'
