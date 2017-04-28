@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import { PlanComponent }  from './plans/plan.component';
+import { PlanListComponent }  from './plans/planlist.component';
 import { DashboardComponent } from './shared/dashboard.component';
 import { UserProfileComponent } from './user/profile.component';
 
@@ -16,6 +17,7 @@ import { routerConfig } from './app.config';
     
     declarations: [ AppComponent,
                     PlanComponent,
+                    PlanListComponent,
                     DashboardComponent,
                     UserProfileComponent],
     

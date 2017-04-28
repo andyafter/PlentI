@@ -17,7 +17,7 @@ import { DestinationService } from './services/destination.service';
                 <ul class="nav navbar-nav" routerLinkActive="active">
                     <li class="nav-item"><a class="nav-link" routerLink="dashboard">Home</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="user">My Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="plan">Explore</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="planlist">Explore</a></li>
                 </ul>
             </div>
         </nav>

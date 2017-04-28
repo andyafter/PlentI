@@ -8,7 +8,9 @@ import { PlanService } from '../services/plan.service';
     selector: 'plan-list',
     template: `
         <ul>
-            <li> </li>
+            <li *ngFor='let plan of plans  let i = index'> 
+                {{i+1}} - {{plan}}
+            </li>
         </ul>
     `
 })
