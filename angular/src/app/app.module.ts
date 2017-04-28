@@ -1,22 +1,21 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
+import { PlanComponent }  from './plans/plan.component';
 import { DashboardComponent } from './shared/dashboard.component';
 import { UserProfileComponent } from './user/profile.component';
 
-const appRoutes: Routes = [
-    { path: 'profile', component: UserProfileComponent }
-];
+import { routerConfig } from './app.config';
 
 @NgModule({
     imports:      [ BrowserModule,
                     HttpModule,
-                    RouterModule.forRoot(appRoutes)],
+                    routerConfig ],
     
     declarations: [ AppComponent,
+                    PlanComponent,
                     DashboardComponent,
                     UserProfileComponent],
     

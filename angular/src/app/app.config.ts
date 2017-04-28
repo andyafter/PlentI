@@ -1,14 +1,14 @@
 'use strict';
 
 import { Component } from '@angular/core';
-import { Routes } from '@angular/router';
+import { Router, RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './shared/dashboard.component';
 import { PlanComponent } from './plans/plan.component';
 import { UserProfileComponent } from './user/profile.component';
 
-export const routerConfig: Routes = [
+export const routerConfig = RouterModule.forRoot([
     {
         path: 'dashboard',
         component: DashboardComponent
@@ -31,4 +31,4 @@ export const routerConfig: Routes = [
         redirectTo: '/dashboard',
         pathMatch: 'full'
     }
-];
+]);
