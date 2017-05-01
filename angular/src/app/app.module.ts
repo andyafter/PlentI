@@ -7,6 +7,7 @@ import { PlanComponent }  from './plans/plan.component';
 import { PlanListComponent }  from './plans/planlist.component';
 import { DashboardComponent } from './shared/dashboard.component';
 import { UserProfileComponent } from './user/profile.component';
+import { MapComponent } from './shared/map.component';
 
 import { routerConfig } from './app.config';
 
@@ -19,6 +20,7 @@ import { routerConfig } from './app.config';
                     PlanComponent,
                     PlanListComponent,
                     DashboardComponent,
+                    MapComponent,
                     UserProfileComponent],
     
     bootstrap:    [ AppComponent ]

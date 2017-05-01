@@ -8,6 +8,7 @@ import { DashboardComponent } from './shared/dashboard.component';
 import { PlanComponent } from './plans/plan.component';
 import { PlanListComponent } from './plans/planlist.component';
 import { UserProfileComponent } from './user/profile.component';
+import { MapComponent } from './shared/map.component';
 
 export const routerConfig = RouterModule.forRoot([
     {
@@ -29,6 +30,10 @@ export const routerConfig = RouterModule.forRoot([
     {
         path: 'plan',
         component: PlanComponent
+    },
+    {
+        path: 'map',
+        component: MapComponent
     },
     {
         path: '',

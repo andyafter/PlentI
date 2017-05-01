@@ -17,6 +17,7 @@ import { DestinationService } from './services/destination.service';
                     <li class="nav-item"><a class="nav-link" routerLink="dashboard">Home</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="user">My Profile</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="planlist">Explore</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="map">Map</a></li>
                 </ul>
             </nav>
             <router-outlet> </router-outlet>
