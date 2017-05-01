@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PlanService } from '../services/plan.service';
+import { DestinationService } from '../services/destination.service';
 
 @Component({
     selector: 'dashboard',
@@ -18,7 +19,7 @@ import { PlanService } from '../services/plan.service';
 
             <div class='col-3'>
                 <div class="card card-inverse card-primary mb-3 text-center">
-                  <div class="card-block">
+                  <div class="card-block" (click)='updateHolidays()'>
                     <blockquote class="card-blockquote">
                     <h3 class="card-title">Holidays</h3>
                     <p class="card-text">
@@ -78,10 +79,25 @@ export class DashboardComponent {
     holidays = [];
     suitableHolidays = 10;
     totalPlans = 20;
-    totalDestinations = 12;
+    totalDestinations = 0;
     cheapestFlight = 340;
 
-    constructor(private _planService: PlanService){
+    selectedLocations = [
+        { name: 'Bali', countryName: 'Indonisia', info: '' },
+        { name: 'Paris', countryName: 'France', info: '' },
+        { name: 'Vancouver', countryName: 'Canada', info: '' },
+        { name: 'Tokyo', countryName: 'Japan', info: '' },
+        { name: 'San Francisco', countryName: 'USA', info: '' },
+        { name: 'Dubai', countryName: 'United Arab Emirates', info: '' },
+        { name: 'Warsaw', countryName: 'Poland', info: '' },
+        { name: 'Munich', countryName: 'Germany', info: '' },
+        { name: 'Casablanca', countryName: 'Morocco', info: '' },
+        { name: 'Rio de Janeiro', countryName: 'Brazil', info: '' },
+        { name: 'Sydney', countryName: 'Australia', info: '' }
+    ];
+
+    constructor(private _planService: PlanService,
+                private _destinationService: DestinationService){
         this._planService.fetchHoliday()
             .subscribe(holidays => {
                 for(var key in holidays.holidays){
@@ -92,5 +108,18 @@ export class DashboardComponent {
                     })
                 }
             });
+        
+        this._destinationService.getDestination()
+            .subscribe(response => {
+                this.totalDestinations = response.length;
+            })
     }
+
+    updateHolidays(){
+        for(var city in this.selectedLocations){
+            this._destinationService.createDestination(this.selectedLocations[city])
+                .subscribe(response => console.log(response));
+        }
+    }
+    
 }

@@ -8,7 +8,7 @@ import { AppService } from './app.service'
 
 @Injectable()
 export class DestinationService{
-
+    
     constructor(private _http: Http, private _appService: AppService){
         
     }

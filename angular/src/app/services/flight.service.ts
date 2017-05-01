@@ -24,6 +24,6 @@ export class FlightService{
     }
 
     fetchSkyscanner(){
-
+        
     }
 }
