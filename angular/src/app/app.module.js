@@ -8,13 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
-var router_1 = require("@angular/router");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
+var plan_component_1 = require("./plans/plan.component");
+var planlist_component_1 = require("./plans/planlist.component");
 var dashboard_component_1 = require("./shared/dashboard.component");
 var profile_component_1 = require("./user/profile.component");
-var appRoutes = [
-    { path: 'profile', component: profile_component_1.UserProfileComponent }
-];
+var map_component_1 = require("./shared/map.component");
+var app_config_1 = require("./app.config");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -23,9 +24,13 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule,
-            router_1.RouterModule.forRoot(appRoutes)],
+            http_1.HttpModule,
+            app_config_1.routerConfig],
         declarations: [app_component_1.AppComponent,
+            plan_component_1.PlanComponent,
+            planlist_component_1.PlanListComponent,
             dashboard_component_1.DashboardComponent,
+            map_component_1.MapComponent,
             profile_component_1.UserProfileComponent],
         bootstrap: [app_component_1.AppComponent]
     })

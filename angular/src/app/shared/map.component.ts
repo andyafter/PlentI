@@ -7,18 +7,16 @@ declare var google: any;
     template: `
         <div>
             <div id="map" style="width: 500px; height: 400px;"></div>
+            <script>
+             var map;
+             function initMap() {
+                 map = new google.maps.Map(document.getElementById('map'), {
+                     center: {lat: 1.35, lng: -103.81},
+                     zoom: 1
+                 });
+             }
+            </script>
 
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZTu_Sr0nQntcQ7_VhmXwdgPg_zWvzicw&callback=initMap" type="text/javascript"></script>
-
-        <script>
-            var map;
-            function initMap() {
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: -34.397, lng: 150.644},
-                    zoom: 2
-                });
-            }
-        </script>
         </div>
     `
 })
@@ -37,11 +35,11 @@ export class MapComponent{
         var directionsDisplay = new google.maps.DirectionsRenderer;
         
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 7,
+            zoom: 1,
             center: {lat: 1.35, lng: -103.81}
         });
         directionsDisplay.setMap(map);
-        this.calculateAndDisplayRoute(directionsService, directionsDisplay);
+        //this.calculateAndDisplayRoute(directionsService, directionsDisplay);
     }
 
     calculateAndDisplayRoute(directionsService, directionsDisplay) {
