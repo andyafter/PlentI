@@ -22,4 +22,8 @@ export class PlanService{
         return this._http.post(this._appService.getURL('/plan'), JSON.stringify(post))
             .map(response => response.json());
     }
+
+    fetchHoliday(){
+        holidayapi = 'https://holidayapi.com/v1/holidays?key=' + AppService.getHolidayAPIKey + '&country=SG&year=2017';
+    }
 }
