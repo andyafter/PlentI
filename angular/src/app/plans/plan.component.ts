@@ -15,6 +15,10 @@ import { Component } from '@angular/core';
 })
 
 export class PlanComponent {
+
     
+    constructor(){
+        
+    }
 }
 

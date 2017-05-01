@@ -5,7 +5,6 @@ import { Component } from '@angular/core'
     template: `
         <div>
             Here is the profile 
-        
         </div>
     `
 })
