@@ -11,17 +11,16 @@ import { DestinationService } from './services/destination.service';
 @Component({
     selector: 'my-app',
     template: `
-        <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-            <div class="container">
-                <a class="navbar-brand">PlentI</a>
-                <ul class="nav navbar-nav" routerLinkActive="active">
+        <div class="container">
+            <nav class="navbar navbar-dark bg-inverse">
+                <ul class="nav navpills" routerLinkActive="active">
                     <li class="nav-item"><a class="nav-link" routerLink="dashboard">Home</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="user">My Profile</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="planlist">Explore</a></li>
                 </ul>
-            </div>
-        </nav>
-        <router-outlet> </router-outlet>
+            </nav>
+            <router-outlet> </router-outlet>
+        </div>
     `,
     providers: [ FlightService,
                  PlanService,
