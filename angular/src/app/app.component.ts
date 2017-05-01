@@ -21,6 +21,7 @@ import { DestinationService } from './services/destination.service';
                 </ul>
             </nav>
             <router-outlet> </router-outlet>
+            <div>{{dateObj | date}} </div>
         </div>
     `,
     providers: [ FlightService,
@@ -31,6 +32,7 @@ import { DestinationService } from './services/destination.service';
 
 export class AppComponent  {
     name = 'John';
+    dateObj = '2017-01-01';
     
     constructor(private _flightService: FlightService,
                 private _planService: PlanService,
@@ -41,7 +43,7 @@ export class AppComponent  {
                 console.log(flight);
             });
         
-        this._planService.getPlan()
+        this._planService.fetchHoliday()
             .subscribe(plan => console.log(plan));
         
         this._destinationService.getDestination()

@@ -24,6 +24,11 @@ export class PlanService{
     }
 
     fetchHoliday(){
-        holidayapi = 'https://holidayapi.com/v1/holidays?key=' + AppService.getHolidayAPIKey + '&country=SG&year=2017';
+        var holidayapi = 'https://holidayapi.com/v1/holidays?key=' + this._appService.getHolidayAPIKey() + '&country=SG&year=2017';
+        return this._http.get(holidayapi)
+            .map(response => {
+                var holidays = response.json().holidays;
+                console.log(holidays['2017-01-01'][0]);
+            });
     }
 }
