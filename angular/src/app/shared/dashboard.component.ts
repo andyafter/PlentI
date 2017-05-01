@@ -1,11 +1,96 @@
 import { Component } from '@angular/core';
+import { PlanService } from '../services/plan.service';
 
 @Component({
     selector: 'dashboard',
-    template: `<h1> Here is the dashboard </h1>`
+    template: `
+        <div class='row'>
+            <div class='col-6'>
+                <h2>Holidays of the year: </h2>
+                <ul class='list-group'>
+                    <li *ngFor='let holiday of holidays  let i = index' 
+                        class='list-group-item'>
+                        <span class='label label-default label-pill pull-right'>  </span>
+                        {{i+1}} - {{holiday.name}} : {{holiday.date | date}}
+                    </li>
+                </ul>
+            </div>
+
+            <div class='col-3'>
+                <div class="card card-inverse card-primary mb-3 text-center">
+                  <div class="card-block">
+                    <blockquote class="card-blockquote">
+                    <h3 class="card-title">Holidays</h3>
+                    <p class="card-text">
+                    You have {{suitableHolidays}} suitable time slots for holidays.
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </blockquote>
+                  </div>
+                </div>
+
+                <div class="card card-inverse card-primary mb-3 text-center">
+                  <div class="card-block">
+                    <blockquote class="card-blockquote">
+                    <h3 class="card-title">Destinations</h3>
+                    <p class="card-text">
+                    There are {{totalDestinations}} places waiting for you to visit.
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </blockquote>
+                  </div>
+                </div>
+            </div>
+
+            <div class='col-3'>
+                <div class="card card-inverse card-primary mb-3 text-center">
+                  <div class="card-block">
+                    <blockquote class="card-blockquote">
+                    <h3 class="card-title">Plans</h3>
+                    <p class="card-text">
+                    Checkout {{totalPlans}} travel plans we have prepared for you.
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </blockquote>
+                  </div>
+                </div>
+
+                <div class="card card-inverse card-primary mb-3 text-center">
+                  <div class="card-block">
+                    <blockquote class="card-blockquote">
+                    <h3 class="card-title">Cheap Flights</h3>
+                    <p class="card-text">
+                    You can go travel with lowest cost of {{cheapestFlight}} USD.
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </blockquote>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+    `
 })
 
 export class DashboardComponent {
     name = 'Dashboard';
-    
+    dates = [];
+    holidays = [];
+    suitableHolidays = 10;
+    totalPlans = 20;
+    totalDestinations = 12;
+    cheapestFlight = 340;
+
+    constructor(private _planService: PlanService){
+        this._planService.fetchHoliday()
+            .subscribe(holidays => {
+                for(var key in holidays.holidays){
+                    this.dates.push(key);
+                    this.holidays.push({
+                        date: key,
+                        name: holidays.holidays[key][0].name
+                    })
+                }
+            });
+    }
 }

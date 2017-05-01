@@ -21,15 +21,6 @@ import { DestinationService } from './services/destination.service';
                 </ul>
             </nav>
             <router-outlet> </router-outlet>
-
-            <h2>Holidays of the year: </h2>
-            <ul class='list-group'>
-                <li *ngFor='let holiday of holidays  let i = index' 
-                    class='list-group-item'>
-                    <span class='label label-default label-pill pull-right'>  </span>
-                    {{i+1}} - {{holiday.name}} : {{holiday.date | date}}
-                </li>
-            </ul>
         </div>
     `,
     providers: [ FlightService,
@@ -40,8 +31,6 @@ import { DestinationService } from './services/destination.service';
 
 export class AppComponent  {
     name = 'John';
-    dates = [];
-    holidays = [];
     
     constructor(private _flightService: FlightService,
                 private _planService: PlanService,
@@ -53,13 +42,6 @@ export class AppComponent  {
         
         this._planService.fetchHoliday()
             .subscribe(holidays => {
-                for(var key in holidays.holidays){
-                    this.dates.push(key);
-                    this.holidays.push({
-                        date: key,
-                        name: holidays.holidays[key][0].name
-                    })
-                }
             });
         
         this._destinationService.getDestination()
