@@ -7,8 +7,10 @@ import { PlanService } from '../services/plan.service';
 @Component({
     selector: 'plan-list',
     template: `
-        <ul>
-            <li *ngFor='let plan of plans  let i = index' (click)='viewPlan(plan)'> 
+        <ul class='list-group'>
+            <li *ngFor='let plan of plans  let i = index' 
+                (click)='viewPlan(plan)'
+                class='list-group-item'> 
                 {{i+1}} - {{plan}}
             </li>
         </ul>
