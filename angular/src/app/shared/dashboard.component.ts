@@ -98,9 +98,14 @@ export class DashboardComponent {
 
     constructor(private _planService: PlanService,
                 private _destinationService: DestinationService){
+        var start = new Date('2017-01-01');
         this._planService.fetchHoliday()
             .subscribe(holidays => {
                 for(var key in holidays.holidays){
+                    var day = new Date(key);
+                    if(day.getDay() == 3){ // wednesday cannot be attached to a one day break.
+                        continue;
+                    }
                     this.dates.push(key);
                     this.holidays.push({
                         date: key,
@@ -113,6 +118,9 @@ export class DashboardComponent {
             .subscribe(response => {
                 this.totalDestinations = response.length;
             })
+
+        var end = new Date('2017-01-03');
+        console.log((end.valueOf() - start.valueOf())/(24*60*60*1000));
     }
 
     updateHolidays(){

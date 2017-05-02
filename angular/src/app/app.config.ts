@@ -9,6 +9,7 @@ import { PlanComponent } from './plans/plan.component';
 import { PlanListComponent } from './plans/planlist.component';
 import { UserProfileComponent } from './user/profile.component';
 import { MapComponent } from './shared/map.component';
+import { PlanGridComponent } from './plans/plangrid.component';
 
 export const routerConfig = RouterModule.forRoot([
     {
@@ -20,15 +21,15 @@ export const routerConfig = RouterModule.forRoot([
         component: UserProfileComponent
     },
     {
-        path: 'plan',
-        component: PlanComponent
-    },
-    {
         path: 'planlist',
         component: PlanListComponent
     },
     {
-        path: 'plan',
+        path: 'plangrid',
+        component: PlanGridComponent
+    },
+    {
+        path: 'plan/:id',
         component: PlanComponent
     },
     {
