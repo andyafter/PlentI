@@ -20,7 +20,7 @@ import { FlightService } from '../services/flight.service';
 
             <div class='col-3'>
                 <div class="card card-inverse card-primary mb-3 text-center">
-                  <div class="card-block" (click)='updateFlights()'>
+                  <div class="card-block" (click)='updatePlans()'>
                     <blockquote class="card-blockquote">
                     <h3 class="card-title">Holidays</h3>
                     <p class="card-text">
@@ -80,6 +80,9 @@ export class DashboardComponent {
     holidays = [];
     plans = [];
     flights = [];
+
+    longestHoliday = 0;
+    planIndex = [];
     
     suitableHolidays = 10;
     totalPlans = 20;
@@ -103,6 +106,11 @@ export class DashboardComponent {
     constructor(private _planService: PlanService,
                 private _destinationService: DestinationService){
         var start = new Date('2017-01-01');
+        var yearDay = [];
+        for(var _i = 0; _i < 365; _i++){
+            yearDay[_i] = 0;
+        }
+        
         this._planService.fetchHoliday()
             .subscribe(holidays => {
                 for(var key in holidays.holidays){
@@ -116,15 +124,41 @@ export class DashboardComponent {
                         name: holidays.holidays[key][0].name
                     })
                 }
+                
+                for(var holiday in this.holidays){
+                    var holidayDate = new Date(this.holidays[holiday].date);
+                    yearDay[(-start.valueOf() + holidayDate.valueOf())/(24*60*60*1000)] = 1;
+                }
+
+                // January 1 2017 is a Sunday
+                for(var _i in yearDay){
+                    if((+_i % 7 == 0) || ((+_i % 7 == 6))){
+                        yearDay[_i] = 1;
+                    }
+                }
+
+                for(var _i in yearDay){
+                    if(+_i >= 362){
+                        break;
+                    }
+                    var total = yearDay[_i] + yearDay[_i+1] + yearDay[_i+2] + yearDay[_i+3];
+                    
+                    console.log(total.constructor.name);
+                    if( total != NaN && total >= 3){
+                        if(total == 4){
+                            this.longestHoliday = 5;
+                            this.planIndex.push(_i);
+                        }
+                    }
+                }
+
+                this.suitableHolidays = this.planIndex.length;
             });
         
         this._destinationService.getDestination()
             .subscribe(response => {
                 this.totalDestinations = response.length;
             })
-
-        var end = new Date('2017-01-03');
-        console.log((end.valueOf() - start.valueOf())/(24*60*60*1000));
     }
 
     updateHolidays(){
@@ -135,7 +169,14 @@ export class DashboardComponent {
     }
 
     updatePlans(){
-        
+        this._planService.createPlan({
+            planID: '1',
+            destination: 'TBD',
+            startDate: '2017-01-28',
+            backDate: '2017-02-01',
+            flight: 'TBD'
+        })
+            .subscribe(response => console.log(response))
     }
 
     updateFlights(){

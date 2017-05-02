@@ -38,11 +38,21 @@ export class PlanListComponent {
     
     constructor(private _planService: PlanService,
                 private _router: Router){
+        this._planService.getPlan()
+            .subscribe(plans => {
+                for(var _i in plans){
+                    this.plans.push({
+                        name: plans[_i].destination,
+                        id: plans[_i].planID
+                    })
+                }
+            });
     }
     
     refreshPlans(){
         this._planService.getPlan()
             .subscribe(plan => {
+                
             })
     }
 
