@@ -18,6 +18,11 @@ export class PlanService{
             .map(response => response.json());
     }
 
+    getPlanID(id){
+        return this._http.get(this._appService.getURL('/plan/'+id))
+            .map(response => response.json());
+    }
+
     createPlan(post){
         return this._http.post(this._appService.getURL('/plan'), JSON.stringify(post))
             .map(response => response.json());
