@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PlanService } from '../services/plan.service';
 import { DestinationService } from '../services/destination.service';
+import { FlightService } from '../services/flight.service';
 
 @Component({
     selector: 'dashboard',
@@ -19,7 +20,7 @@ import { DestinationService } from '../services/destination.service';
 
             <div class='col-3'>
                 <div class="card card-inverse card-primary mb-3 text-center">
-                  <div class="card-block" (click)='updateHolidays()'>
+                  <div class="card-block" (click)='updateFlights()'>
                     <blockquote class="card-blockquote">
                     <h3 class="card-title">Holidays</h3>
                     <p class="card-text">
@@ -77,6 +78,9 @@ export class DashboardComponent {
     name = 'Dashboard';
     dates = [];
     holidays = [];
+    plans = [];
+    flights = [];
+    
     suitableHolidays = 10;
     totalPlans = 20;
     totalDestinations = 0;
@@ -128,6 +132,14 @@ export class DashboardComponent {
             this._destinationService.createDestination(this.selectedLocations[city])
                 .subscribe(response => console.log(response));
         }
+    }
+
+    updatePlans(){
+        
+    }
+
+    updateFlights(){
+        
     }
     
 }
